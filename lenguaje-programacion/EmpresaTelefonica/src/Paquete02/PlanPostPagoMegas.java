@@ -10,41 +10,36 @@ package Paquete02;
  */
 public class PlanPostPagoMegas extends PlanCelular {
 
-    private double megasGi;
-    private double costoGiga;
+    private double MegasGB;
+    private double costoGB;
     private double tarifaBase;
 
-    public PlanPostPagoMegas(double mG, double cG, double tB, String nom,
-            String ced, String ciu, String mar, String mod, String numeroCe) {
-        super(nom, ced, ciu, mar, mod, numeroCe);
-        megasGi = mG;
-        costoGiga = cG;
+    public PlanPostPagoMegas(int nMGB, double cGB, double tB, String nU, String ceU,
+            String ciU, String maM, String moM, String nM) {
+        super(nU, ceU, ciU, maM, moM, nM);
+        MegasGB = nMGB;
+        costoGB = cGB;
         tarifaBase = tB;
     }
 
-    public void establecerMegasGi(double me) {
-        megasGi = me;
+    public void establecerNumeroMegasGB(int n) {
+        MegasGB = n;
     }
 
-    public void establecerCostoMega(double costoM) {
-        costoGiga = costoM;
+    public double obtenerNumeroMegasGB() {
+        return MegasGB;
     }
 
-    public void establecerTarifaBase(double tarifaB) {
-        tarifaBase = tarifaB;
+    public void establecerCostoGB(double n) {
+        costoGB = n;
     }
 
-    @Override
-    public void calcularPagoMensual() {
-        pagoMensual = 0;
+    public double obtenerCostoGB() {
+        return costoGB;
     }
 
-    public double obtenerMegasGi() {
-        return megasGi;
-    }
-
-    public double obtenerCostoMega() {
-        return costoGiga;
+    public void establecerTarifaBase(double n) {
+        tarifaBase = n;
     }
 
     public double obtenerTarifaBase() {
@@ -52,15 +47,25 @@ public class PlanPostPagoMegas extends PlanCelular {
     }
 
     @Override
+    public void calcularPagoMensual() {
+        pagoMensual = tarifaBase + (MegasGB * costoGB);
+    }
+
+    @Override
+    public double obtenerPagoMensual() {
+        return pagoMensual;
+    }
+
+    @Override
     public String toString() {
-        String cadena = String.format("Plan Post Pago Megas\n"
-                + super.toString()
-                + "Megas en Gigas: %.2f\n"
-                + "Costo por cada Giga: $ %.2f\n"
-                + "Tarifa Base: %.2f\n"
-                + "Pago Mensual: $ %.2f\n",
-                obtenerMegasGi(),
-                obtenerCostoMega(),
+        String cadena = String.format("\nPlan PostPago Megas\n"
+                + super.toString() + "\nReporte\n"
+                + "Numero de Megas (GB): %d\n"
+                + "Costo por cada GB: %.2f\n"
+                + "Tarifa base: %.2f\n"
+                + "Pago mensual: %.2f\n",
+                obtenerNumeroMegasGB(),
+                obtenerCostoGB(),
                 obtenerTarifaBase(),
                 obtenerPagoMensual());
         return cadena;

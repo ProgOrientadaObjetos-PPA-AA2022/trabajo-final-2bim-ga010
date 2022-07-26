@@ -9,72 +9,74 @@ package Paquete02;
  * @author spart
  */
 public class PlanPostPagoMinutosMegas extends PlanCelular {
+
     private int minutos;
     private double costoMinuto;
-    private double numeroMegasGB;
+    private int numeroMegasGB;
     private double costoGB;
 
-    public PlanPostPagoMinutosMegas(int m, double cM, double nM, double cGB,
-            String nom, String ced, String ciu, String mar, String mod, String numeroCe) {
-        super(nom, ced, ciu, mar, mod, numeroCe);
+    public PlanPostPagoMinutosMegas(int m, double cM, int nMGB, double cGB,
+            String nU, String ceU, String ciU, String maM, String moM, String nM) {
+        super(nU, ceU, ciU, maM, moM, nM);
         minutos = m;
         costoMinuto = cM;
-        numeroMegasGB = nM;
+        numeroMegasGB = nMGB;
         costoGB = cGB;
     }
-    
+
     public void establecerMinutos(int n) {
         minutos = n;
+    }
+
+    public int obtenerMinutos() {
+        return minutos;
     }
 
     public void establecerCostoMinuto(double n) {
         costoMinuto = n;
     }
-  
+
+    public double obtenerCostoMinuto() {
+        return costoMinuto;
+    }
+
     public void establecerNumeroMegasGB(int n) {
         numeroMegasGB = n;
+    }
+
+    public int obtenerNumeroMegasGB() {
+        return numeroMegasGB;
     }
 
     public void establecerCostoGB(double n) {
         costoGB = n;
     }
-    
-    @Override
-    public void calcularPagoMensual() {
-        pagoMensual = 0;
-    }
-    
-    @Override
-    public double obtenerPagoMensual(){
-        return pagoMensual;
-    }
-    
-    public int obtenerMinutos() {
-        return minutos;
-    }
-    
-    public double obtenerCostoMinuto() {
-        return costoMinuto;
-    }
-    
-    public double obtenerNumeroMegasGB() {
-        return numeroMegasGB;
-    }
-    
+
     public double obtenerCostoGB() {
         return costoGB;
     }
-    
+
+    @Override
+    public void calcularPagoMensual() {
+        pagoMensual = (minutos * costoMinuto) + (numeroMegasGB * costoGB);
+    }
+
+    @Override
+    public double obtenerPagoMensual() {
+        return pagoMensual;
+    }
+
     @Override
     public String toString() {
-        String cadena = String.format("Plan PostPago MinutosMegas\n"
-                + super.toString()
+        String cadena = String.format("\nPlan PostPago MinutosMegas\n"
+                + super.toString() + "\nReporte\n"
                 + "Minutos: %d\n"
                 + "Costo minuto : %.2f\n"
                 + "Numero de Megas (GB): %d\n"
                 + "Costo del GB: %.2f\n"
-                + "Pago mensual: %.2f\n", 
-                obtenerMinutos(),obtenerCostoMinuto(),
+                + "Pago mensual: %.2f\n",
+                obtenerMinutos(),
+                obtenerCostoMinuto(),
                 obtenerNumeroMegasGB(),
                 obtenerCostoGB(),
                 obtenerPagoMensual());

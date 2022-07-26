@@ -9,52 +9,47 @@ package Paquete02;
  * @author spart
  */
 public class PlanPostPagoMinutos extends PlanCelular {
-    private double minutosNacionales;
-    private double costoMinutosNacionales;
-    private double minutosInternacionales;
+
+    private int minutosNacionales;
+    private double costoMinutoNacional;
+    private int minutosInternacionales;
     private double costoMinutoInternacional;
 
-    public PlanPostPagoMinutos(String nom, String ced, String ciu, String mar,
-            String mod, String numeroCe, double mN, double cmN, double mI,
-            double cmI) {
-        super(nom, ced, ciu, mar, mod, numeroCe);
+    public PlanPostPagoMinutos(int mN, double cMN, int mI, String nU, String ceU,
+            String ciU, String maM, String moM, String nM) {
+        super(nU, ceU, ciU, maM, moM, nM);
         minutosNacionales = mN;
-        costoMinutosNacionales = cmN;
-        minutosInternacionales = mI;
-        costoMinutoInternacional = cmI;
-    }
-
-    public void establecerMinutosNacionales(double mN) {
-        minutosNacionales = mN;
-    }
-
-    public void establecerCostoMinutosNacionales(double cmN) {
-        costoMinutosNacionales = cmN;
-    }
-
-    public void establecerMinutosInternacionales(double mI) {
+        costoMinutoNacional = cMN;
         minutosInternacionales = mI;
     }
+    
 
-    public void establecerCostoMinutoInternacional(double cmI) {
-        costoMinutoInternacional = cmI;
+    public void establecerMinutosNacionales(int n) {
+        minutosNacionales = n;
     }
 
-    @Override
-    public void calcularPagoMensual() {
-        pagoMensual = 0;
-    }
-
-    public double obtenerMinutosNacionales() {
+    public int obtenerMinutosNacionales() {
         return minutosNacionales;
     }
 
-    public double obtenerCostoMinutosNacionales() {
-        return costoMinutosNacionales;
+    public void establecerCostoMinutoNacional(double n) {
+        costoMinutoNacional = n;
     }
 
-    public double obtenerMinutosInternacionales() {
+    public double obtenerCostoMinutoNacional() {
+        return costoMinutoNacional;
+    }
+
+    public void establecerMinutosInternacionales(int n) {
+        minutosInternacionales = n;
+    }
+
+    public int obtenerMinutosInternacionales() {
         return minutosInternacionales;
+    }
+
+    public void establecerCostoMinutoInternacional(double n) {
+        costoMinutoInternacional = n;
     }
 
     public double obtenerCostoMinutoInternacional() {
@@ -62,16 +57,27 @@ public class PlanPostPagoMinutos extends PlanCelular {
     }
 
     @Override
+    public void calcularPagoMensual() {
+        pagoMensual = (minutosNacionales * costoMinutoNacional)
+                + (minutosInternacionales * costoMinutoInternacional);
+    }
+
+    @Override
+    public double obtenerPagoMensual() {
+        return pagoMensual;
+    }
+
+    @Override
     public String toString() {
-        String cadena = String.format("Plan Post Pago Minutos\n%s"
-                + super.toString()
-                + "Minutos Nacionales: %.2f\n"
-                + "Costo Minuto Nacional: $ %.2f\n"
-                + "Minutos Internacionales: %.2f\n"
-                + "Costo Minuto Internacional: $ %.2f\n"
-                + "Pago Mensual: $ %.2f\n",
+        String cadena = String.format("\nPlan PostPago Minutos\n"
+                + super.toString() + "\nReporte\n"
+                + "Minutos nacionales: %d\n"
+                + "Costo minuto nacional: %.2f\n"
+                + "Minutos internacionales: %d\n"
+                + "Costo minutos internacionales: %.2f\n"
+                + "Pago mensual: %.2f\n",
                 obtenerMinutosNacionales(),
-                obtenerCostoMinutosNacionales(),
+                obtenerCostoMinutoNacional(),
                 obtenerMinutosInternacionales(),
                 obtenerCostoMinutoInternacional(),
                 obtenerPagoMensual());

@@ -10,73 +10,73 @@ package Paquete02;
  */
 public abstract class PlanCelular {
 
-    protected String nombre;
-    protected String cedula;
-    protected String ciudad;
-    protected String marca;
-    protected String modelo;
-    protected String numeroCelular;
+    protected String nombresUsuario;
+    protected String cedulaUsuario;
+    protected String ciudadUsuario;
+    protected String marcaMovil;
+    protected String modeloMovil;
+    protected String numeroMovil;
     protected double pagoMensual;
 
-    public PlanCelular(String nom, String ced, String ciu, String mar,
-            String mod, String numeroCe) {
-        nombre = nom;
-        cedula = ced;
-        ciudad = ciu;
-        marca = mar;
-        modelo = mod;
-        numeroCelular = numeroCe;
+    public PlanCelular(String nU, String ceU, String ciU, String maM,
+            String moM, String nM) {
+        nombresUsuario = nU;
+        cedulaUsuario = ceU;
+        ciudadUsuario = ciU;
+        marcaMovil = maM;
+        modeloMovil = moM;
+        numeroMovil = nM;
     }
 
-    public void establecerNombre(String nom) {
-        nombre = nom;
+    public void establecerNombresUsuario(String n) {
+        nombresUsuario = n;
     }
 
-    public void establecerCedula(String ced) {
-        cedula = ced;
+    public String obtenerNombresUsuario() {
+        return nombresUsuario;
     }
 
-    public void establecerCiudad(String ciu) {
-        ciudad = ciu;
+    public void establecerCedulaUsuario(String n) {
+        cedulaUsuario = n;
     }
 
-    public void establecerMarca(String mar) {
-        marca = mar;
+    public String obtenerCedulaUsuario() {
+        return cedulaUsuario;
     }
 
-    public void establecerModelo(String mod) {
-        modelo = mod;
+    public void establecerCiudadUsuario(String n) {
+        ciudadUsuario = n;
     }
 
-    public void establecerNumeroCelular(String numeroCe) {
-        numeroCelular = numeroCe;
+    public String obtenerCiudadUsuario() {
+        return ciudadUsuario;
+    }
+
+    public void establecerMarcaMovil(String n) {
+        marcaMovil = n;
+    }
+
+    public String obtenerMarcaMovil() {
+        return marcaMovil;
+    }
+
+    public void establecerModeloMovil(String n) {
+        modeloMovil = n;
+    }
+
+    public String obtenerModeloMovil() {
+        return modeloMovil;
+    }
+
+    public void establecerNumeroMovil(String n) {
+        numeroMovil = n;
+    }
+
+    public String obtenerNumeroMovil() {
+        return numeroMovil;
     }
 
     public abstract void calcularPagoMensual();
-
-    public String obtenerNombre() {
-        return nombre;
-    }
-
-    public String obtenerCedula() {
-        return cedula;
-    }
-
-    public String obtenerCiudad() {
-        return ciudad;
-    }
-
-    public String obtenerMarca() {
-        return marca;
-    }
-
-    public String obtenerModelo() {
-        return modelo;
-    }
-
-    public String obtenerNumeroCelular() {
-        return numeroCelular;
-    }
 
     public double obtenerPagoMensual() {
         return pagoMensual;
@@ -84,20 +84,22 @@ public abstract class PlanCelular {
 
     @Override
     public String toString() {
-        String cadena = String.format("Plan Celular" 
-                + super.toString()
-                + "Nombre del Propietario: %s\n"
-                + "Cedula del Propietario: %s\n"
-                + "Ciudad del Propietario: %s\n"
-                + "Marca de Celular: %s\n"
-                + "Modelo del Celular: %s\n"
-                + "Numero de Celular: %s\n",
-                obtenerNombre(),
-                obtenerCedula(),
-                obtenerCiudad(),
-                obtenerMarca(),
-                obtenerModelo(),
-                obtenerNumeroCelular());
+        String cadena = String.format("--------------------\n"
+                + "Propietario\n"
+                + "Nombres del Usuario: %s\n"
+                + "Cedula del Usuario: %s\n"
+                + "Ciudad del Usuario: %s\n"
+                + "Celular: \n"
+                + "Marca del Movil: %s\n"
+                + "Modelo del Movil: %s\n"
+                + "Numero del Movil: %s\n",
+                obtenerNombresUsuario(),
+                obtenerCedulaUsuario(),
+                obtenerCiudadUsuario(),
+                obtenerMarcaMovil(),
+                obtenerModeloMovil(),
+                obtenerNumeroMovil());
+
         return cadena;
     }
 }
