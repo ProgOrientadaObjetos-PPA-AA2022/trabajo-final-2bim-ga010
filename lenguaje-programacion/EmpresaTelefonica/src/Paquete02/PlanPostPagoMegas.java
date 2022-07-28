@@ -10,24 +10,24 @@ package Paquete02;
  */
 public class PlanPostPagoMegas extends PlanCelular {
 
-    private double MegasGB;
+    private double megasGB;
     private double costoGB;
     private double tarifaBase;
 
-    public PlanPostPagoMegas(int nMGB, double cGB, double tB, String nU, String ceU,
+    public PlanPostPagoMegas(double nMGB, double cGB, double tB, String nU, String ceU,
             String ciU, String maM, String moM, String nM) {
         super(nU, ceU, ciU, maM, moM, nM);
-        MegasGB = nMGB;
+        megasGB = nMGB;
         costoGB = cGB;
         tarifaBase = tB;
     }
 
-    public void establecerNumeroMegasGB(int n) {
-        MegasGB = n;
+    public void establecerNumeroMegasGB(double n) {
+        megasGB = n;
     }
 
     public double obtenerNumeroMegasGB() {
-        return MegasGB;
+        return megasGB;
     }
 
     public void establecerCostoGB(double n) {
@@ -48,7 +48,7 @@ public class PlanPostPagoMegas extends PlanCelular {
 
     @Override
     public void calcularPagoMensual() {
-        pagoMensual = tarifaBase + (MegasGB * costoGB);
+        pagoMensual = tarifaBase + (megasGB * costoGB);
     }
 
     @Override

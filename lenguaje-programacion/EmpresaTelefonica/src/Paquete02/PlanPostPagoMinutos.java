@@ -8,6 +8,8 @@ package Paquete02;
  *
  * @author spart
  */
+
+// esta ckse nos permite 
 public class PlanPostPagoMinutos extends PlanCelular {
 
     private int minutosNacionales;
@@ -15,13 +17,14 @@ public class PlanPostPagoMinutos extends PlanCelular {
     private int minutosInternacionales;
     private double costoMinutoInternacional;
 
-    public PlanPostPagoMinutos(int mN, double cMN, int mI, String nU, String ceU,
-            String ciU, String maM, String moM, String nM) {
+    public PlanPostPagoMinutos(int mN, double cMN, int mI, double cMI, 
+            String nU, String ceU, String ciU, String maM, String moM, String nM) {
         super(nU, ceU, ciU, maM, moM, nM);
         minutosNacionales = mN;
         costoMinutoNacional = cMN;
         minutosInternacionales = mI;
-    }
+        costoMinutoInternacional = cMI;
+    }    
     
 
     public void establecerMinutosNacionales(int n) {

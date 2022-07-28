@@ -42,11 +42,11 @@ public class PlanPostPagoMinutosMegasEconomico extends PlanCelular {
         return costoMinuto;
     }
 
-    public void establecerMegasGB(int n) {
+    public void establecerNumeroMegasGB(int n) {
         numeroMegasGB = n;
     }
 
-    public int obtenerMegasGB() {
+    public int obtenerNumeroMegasGB() {
         return numeroMegasGB;
     }
 
@@ -89,7 +89,7 @@ public class PlanPostPagoMinutosMegasEconomico extends PlanCelular {
                 + "Pago mensual: %.2f\n",
                 obtenerMinutos(), 
                 obtenerCostoMinuto(),
-                obtenerMegasGB(),
+                obtenerNumeroMegasGB(),
                 obtenerCostoGB(), 
                 obtenerPDescuento() * 100,
                 obtenerPagoMensual());
