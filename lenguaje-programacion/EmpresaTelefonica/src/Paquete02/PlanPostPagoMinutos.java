@@ -16,6 +16,7 @@ public class PlanPostPagoMinutos extends PlanCelular {
     private double costoMinutoNacional;
     private int minutosInternacionales;
     private double costoMinutoInternacional;
+    
 
     public PlanPostPagoMinutos(String nU, String ceU, String ciU, String maM, String moM, String nM,int mN, double cMN, int mI, double cMI) {
         super(nU, ceU, ciU, maM, moM, nM);

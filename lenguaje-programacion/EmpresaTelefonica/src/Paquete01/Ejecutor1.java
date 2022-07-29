@@ -4,11 +4,11 @@
  */
 package Paquete01;
 
-import java.sql.SQLException;
 import java.util.Locale;
 import java.util.Scanner;
 import Paquete02.*;
 import Paquete03.Enlace;
+import java.sql.SQLException;
 
 /**
  *
@@ -24,9 +24,7 @@ public class Ejecutor1 {
 
         Enlace c = new Enlace();
         leer.useLocale(Locale.US);
-        int op;
         int opcion = 0;
-        //String continuar;
 
         System.out.println("--------        Grupo 10        --------");
         System.out.println("           Empresa Telefonica           ");
@@ -42,9 +40,9 @@ public class Ejecutor1 {
             System.out.println(" ");
             opcion = leer.nextInt();
             leer.nextLine();
-            
+
             if (opcion == 1 || opcion == 2 || opcion == 3 || opcion == 4) {
-                
+
                 System.out.println("Ingrese el nombre del Propietario:");
                 String nom = leer.nextLine();
                 System.out.println("Ingrese el número de Cédula del Propietario:");
@@ -65,11 +63,12 @@ public class Ejecutor1 {
                         double nMegas = leer.nextDouble();
                         System.out.println("Ingrese el Costo por Mega:");
                         double cMega = leer.nextDouble();
+
                         PlanPostPagoMegas me = new PlanPostPagoMegas(nom, ced, ciu,
                                 mar, mod, nume, nMegas, cMega, 12.0);
 
                         me.calcularPagoMensual();
-                        //c.insertarPlanMegas(me);
+                        c.insertarPlanPostPagoMegas(me);
                         break;
 
                     case 2:
@@ -86,7 +85,7 @@ public class Ejecutor1 {
                                 ciu, mar, mod, nume, mNacionales, cNacionales, mInternacionales, cInternacionales);
 
                         mi.calcularPagoMensual();
-                        //c.insertarPlanMinutos(mi);
+                        c.insertarPlanPostPagoMinutos(mi);
                         break;
 
                     case 3:
@@ -103,7 +102,7 @@ public class Ejecutor1 {
                                 ciu, mar, mod, nume, nMinutos1, cMinutos1, nMegas1, cMegas1);
 
                         mm.calcularPagoMensual();
-                        //c.insertarPlanMinutosMegas(mm);
+                        c.insertarPlanPostPagoMinutosMegas(mm);
                         break;
 
                     case 4:
@@ -119,15 +118,15 @@ public class Ejecutor1 {
                                 ciu, mar, mod, nume, nMinutos2, cMinutos2, nMegas2, cMegas2, 10);
 
                         mmE.calcularPagoMensual();
-                        //c.insertarPlanMinutosMegasEc(mmE);
+                        c.insertarPlanPostPagoMinutosMegasEconomico(mmE);
                         break;
-                        
+
                     case 5:
-                        
+
                         System.out.println(" ");
                         System.out.println("Gracias Por Usar Este Programa ");
                         System.out.println(" ");
-                        
+
                         break;
                     default:
                         System.out.println(" ");
@@ -135,30 +134,22 @@ public class Ejecutor1 {
                         System.out.println(" ");
                 }
             }
-        }
+            
+        }//terminar
+            for (int i = 0; i < c.obtenerDataPlanPostPagoMegas().size(); i++) {
+                System.out.printf("%s", c.obtenerDataPlanPostPagoMegas().get(i));
+            }
+
+            for (int i = 0; i < c.obtenerDataPlanPostPagoMinutos().size(); i++) {
+                System.out.printf("%s", c.obtenerDataPlanPostPagoMinutos().get(i));
+            }
+
+            for (int i = 0; i < c.obtenerDataPlanPostPagoMinutosMegas().size(); i++) {
+                System.out.printf("%s", c.obtenerDataPlanPostPagoMinutosMegas().get(i));
+            }
+
+            for (int i = 0; i < c.obtenerDataPlanPostPagoMinutosMegasEconomico().size(); i++) {
+                System.out.printf("%s", c.obtenerDataPlanPostPagoMinutosMegasEconomico().get(i));
+            }
     }
 }
-/*
-}
-        
-        //terminar
-        for (int i = 0; i < c.obtenerDataPlanMegas().size(); i++) {
-            System.out.printf("%s", c.obtenerDataPlanMegas().get(i));
-        }
-
-        for (int i = 0; i < c.obtenerDataPlanMinutos().size(); i++) {
-            System.out.printf("%s", c.obtenerDataPlanMinutos().get(i));
-        }
-
-        for (int i = 0; i < c.obtenerDataPlanMinutosMegas().size(); i++) {
-            System.out.printf("%s", c.obtenerDataPlanMinutosMegas().get(i));
-        }
-
-        for (int i = 0; i < c.obtenerDataPlanMinutosMegasEconomico().size(); i++) {
-            System.out.printf("%s", c.obtenerDataPlanMinutosMegasEconomico().get(i));
-        }
-
-    }
-
-}
-*/

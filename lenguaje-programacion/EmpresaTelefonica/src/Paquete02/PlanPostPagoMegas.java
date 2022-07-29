@@ -14,6 +14,7 @@ public class PlanPostPagoMegas extends PlanCelular {
     private double costoGB;
     private double tarifaBase;
 
+    
     public PlanPostPagoMegas(String nU, String ceU,
             String ciU, String maM, String moM, String nM , double nMGB, double cGB, double tB) {
         super(nU, ceU, ciU, maM, moM, nM);
