@@ -30,14 +30,18 @@ public class Ejecutor1 {
         System.out.println("--------        Grupo 10        --------");
         System.out.println("           Empresa Telefonica           ");
 
-        while (opcion != 5) {
+        while (opcion != 9) {
             System.out.println("--------    Elija una Opcion   --------");
             System.out.println(" ");
-            System.out.println("[1]" + "             Plan de Megas             " + "[1]");
-            System.out.println("[2]" + "             Plan de Minutos           " + "[2]");
-            System.out.println("[3]" + "             Plan de Megas Y Minutos   " + "[3]");
-            System.out.println("[4]" + "   Plan de Minutos Y Megas Economico   " + "[4]");
-            System.out.println("[5]" + "             Salir                     " + "[5]");
+            System.out.println("[1]" + "             Plan de Megas                 " + "[1]");
+            System.out.println("[2]" + "             Plan de Minutos               " + "[2]");
+            System.out.println("[3]" + "             Plan de Megas Y Minutos       " + "[3]");
+            System.out.println("[4]" + "   Plan de Minutos Y Megas Economico       " + "[4]");
+            System.out.println("[5]" + "   Tabla de Plan Megas                     " + "[5]");
+            System.out.println("[6]" + "   Tabla de Plan Minutos                   " + "[6]");
+            System.out.println("[7]" + "   Tabla Plan de Megas Y Minutos           " + "[7]");
+            System.out.println("[8]" + "   Tabla Plan de Minutos Y Megas Economico " + "[8]");
+            System.out.println("[9]" + "             Salir                         " + "[9]");
             System.out.println(" ");
             opcion = leer.nextInt();
             leer.nextLine();
@@ -118,8 +122,34 @@ public class Ejecutor1 {
                         mmE.calcularPagoMensual();
                         c.insertarPlanPostPagoMinutosMegasEconomico(mmE);
                     }
-
-                    case 5 -> {
+                    
+                    case 5 ->{
+                        for (int i = 0; i < c.obtenerDataPlanPostPagoMegas().size(); i++) {
+                        System.out.printf("%s", c.obtenerDataPlanPostPagoMegas().get(i).toString());
+                        }
+                    }
+                    
+                    
+                    case 6 ->{
+                        for (int i = 0; i < c.obtenerDataPlanPostPagoMinutos().size(); i++) {
+                        System.out.printf("%s", c.obtenerDataPlanPostPagoMinutos().get(i));
+                        }
+                    }
+                    
+                    case 7 ->{
+                        for (int i = 0; i < c.obtenerDataPlanPostPagoMinutosMegas().size(); i++) {
+                        System.out.printf("%s", c.obtenerDataPlanPostPagoMinutosMegas().get(i));
+                        }
+                    }
+                    
+                    
+                    case 8 ->{
+                        for (int i = 0; i < c.obtenerDataPlanPostPagoMinutosMegasEconomico().size(); i++) {
+                        System.out.printf("%s", c.obtenerDataPlanPostPagoMinutosMegasEconomico().get(i));
+                        }
+                    }
+                    
+                    case 9 -> {
                         System.out.println(" ");
                         System.out.println("Gracias Por Usar Este Programa ");
                         System.out.println(" ");
@@ -132,24 +162,5 @@ public class Ejecutor1 {
                 }
             }
         }
-        
-        /*
-        //terminar
-        for (int i = 0; i < c.obtenerDataPlanPostPagoMegas().size(); i++) {
-            System.out.printf("%s", c.obtenerDataPlanPostPagoMegas().get(i));
-        }
-
-        for (int i = 0; i < c.obtenerDataPlanPostPagoMinutos().size(); i++) {
-            System.out.printf("%s", c.obtenerDataPlanPostPagoMinutos().get(i));
-        }
-
-        for (int i = 0; i < c.obtenerDataPlanPostPagoMinutosMegas().size(); i++) {
-            System.out.printf("%s", c.obtenerDataPlanPostPagoMinutosMegas().get(i));
-        }
-
-        for (int i = 0; i < c.obtenerDataPlanPostPagoMinutosMegasEconomico().size(); i++) {
-            System.out.printf("%s", c.obtenerDataPlanPostPagoMinutosMegasEconomico().get(i));
-        }
-*/
     }
 }
