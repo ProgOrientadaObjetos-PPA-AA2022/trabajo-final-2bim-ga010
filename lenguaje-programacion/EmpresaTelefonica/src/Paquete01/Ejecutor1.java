@@ -4,11 +4,12 @@
  */
 package Paquete01;
 
+import java.sql.SQLException;
+
 import java.util.Locale;
 import java.util.Scanner;
 import Paquete02.*;
 import Paquete03.Enlace;
-import java.sql.SQLException;
 
 /**
  *
@@ -19,7 +20,7 @@ public class Ejecutor1 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         Scanner leer = new Scanner(System.in);
 
         Enlace c = new Enlace();
@@ -57,8 +58,7 @@ public class Ejecutor1 {
                 String nume = leer.nextLine();
 
                 switch (opcion) {
-                    case 1:
-
+                    case 1 -> {
                         System.out.println("Ingrese el Número de Megas (Gb):");
                         double nMegas = leer.nextDouble();
                         System.out.println("Ingrese el Costo por Mega:");
@@ -69,10 +69,9 @@ public class Ejecutor1 {
 
                         me.calcularPagoMensual();
                         c.insertarPlanPostPagoMegas(me);
-                        break;
+                    }
 
-                    case 2:
-
+                    case 2 -> {
                         System.out.println("Ingrese el Número de Minutos nacionales:");
                         int mNacionales = leer.nextInt();
                         System.out.println("Ingrese el Costo por Minuto nacional:");
@@ -86,10 +85,9 @@ public class Ejecutor1 {
 
                         mi.calcularPagoMensual();
                         c.insertarPlanPostPagoMinutos(mi);
-                        break;
+                    }
 
-                    case 3:
-
+                    case 3 -> {
                         System.out.println("Ingrese el Número de minutos:");
                         int nMinutos1 = leer.nextInt();
                         System.out.println("Ingrese el Costo por minuto:");
@@ -103,9 +101,9 @@ public class Ejecutor1 {
 
                         mm.calcularPagoMensual();
                         c.insertarPlanPostPagoMinutosMegas(mm);
-                        break;
+                    }
 
-                    case 4:
+                    case 4 -> {
                         System.out.println("Ingrese el Número de minutos:");
                         int nMinutos2 = leer.nextInt();
                         System.out.println("Ingrese el Costo por minuto:");
@@ -119,37 +117,39 @@ public class Ejecutor1 {
 
                         mmE.calcularPagoMensual();
                         c.insertarPlanPostPagoMinutosMegasEconomico(mmE);
-                        break;
+                    }
 
-                    case 5:
-
+                    case 5 -> {
                         System.out.println(" ");
                         System.out.println("Gracias Por Usar Este Programa ");
                         System.out.println(" ");
-
-                        break;
-                    default:
+                    }
+                    default -> {
                         System.out.println(" ");
                         System.out.println("Escoja la opcion correcta");
                         System.out.println(" ");
+                    }
                 }
             }
-            
-        }//terminar
-            for (int i = 0; i < c.obtenerDataPlanPostPagoMegas().size(); i++) {
-                System.out.printf("%s", c.obtenerDataPlanPostPagoMegas().get(i));
-            }
+        }
+        
+        /*
+        //terminar
+        for (int i = 0; i < c.obtenerDataPlanPostPagoMegas().size(); i++) {
+            System.out.printf("%s", c.obtenerDataPlanPostPagoMegas().get(i));
+        }
 
-            for (int i = 0; i < c.obtenerDataPlanPostPagoMinutos().size(); i++) {
-                System.out.printf("%s", c.obtenerDataPlanPostPagoMinutos().get(i));
-            }
+        for (int i = 0; i < c.obtenerDataPlanPostPagoMinutos().size(); i++) {
+            System.out.printf("%s", c.obtenerDataPlanPostPagoMinutos().get(i));
+        }
 
-            for (int i = 0; i < c.obtenerDataPlanPostPagoMinutosMegas().size(); i++) {
-                System.out.printf("%s", c.obtenerDataPlanPostPagoMinutosMegas().get(i));
-            }
+        for (int i = 0; i < c.obtenerDataPlanPostPagoMinutosMegas().size(); i++) {
+            System.out.printf("%s", c.obtenerDataPlanPostPagoMinutosMegas().get(i));
+        }
 
-            for (int i = 0; i < c.obtenerDataPlanPostPagoMinutosMegasEconomico().size(); i++) {
-                System.out.printf("%s", c.obtenerDataPlanPostPagoMinutosMegasEconomico().get(i));
-            }
+        for (int i = 0; i < c.obtenerDataPlanPostPagoMinutosMegasEconomico().size(); i++) {
+            System.out.printf("%s", c.obtenerDataPlanPostPagoMinutosMegasEconomico().get(i));
+        }
+*/
     }
 }

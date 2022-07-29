@@ -24,7 +24,7 @@ public class Enlace {
 
         try {
             // db parameters  
-            String url = "jdbc:sqlite:bd/PlanCelular.bd";
+            String url = "jdbc:sqlite:bd/PlanCelular.bd.db";
             // create a connection to the database  
             conn = DriverManager.getConnection(url);
             // System.out.println(conn.isClosed());
@@ -48,7 +48,7 @@ public class Enlace {
             String data = String.format("INSERT INTO planPostPagoMegas (nombreUsuario,cedulaUsuario,"
                     + "ciudadUsuario,marcaMovil,modeloMovil,numeroMovil,numeroMegasGB,"
                     + "costoGB,tarifaBase) values "
-                    + "('%s', '%s', '%s', '%s', '%s', %s, %f, %f, %f)",
+                    + "('%s', '%s', '%s', '%s', '%s', '%s', '%f', '%f', '%f')",
                     p1.obtenerNombresUsuario(),
                     p1.obtenerCedulaUsuario(),
                     p1.obtenerCiudadUsuario(),
@@ -58,7 +58,7 @@ public class Enlace {
                     p1.obtenerNumeroMegasGB(),
                     p1.obtenerCostoGB(),
                     p1.obtenerTarifaBase());
-            System.out.println(data);
+            //System.out.println(data);
             statement.executeUpdate(data);
             obtenerConexion().close();
         } catch (SQLException e) {
@@ -76,7 +76,7 @@ public class Enlace {
             String data = String.format("INSERT INTO planPostPagoMinutos (nombreUsuario,cedulaUsuario,"
                     + "ciudadUsuario,marcaMovil,modeloMovil,numeroMovil,minutosNacionales,costoMinutoNacional,"
                     + "minutosInternacionales,costoMinutoInternacional) values "
-                    + "('%s', '%s', '%s', '%s', '%s', %s, %d, %f, %d, %f)",
+                    + "('%s', '%s', '%s', '%s', '%s', '%s', '%d', '%f', '%d', '%f')",
                     p1.obtenerNombresUsuario(), 
                     p1.obtenerCedulaUsuario(),
                     p1.obtenerCiudadUsuario(),
@@ -87,7 +87,7 @@ public class Enlace {
                     p1.obtenerCostoMinutoNacional(),
                     p1.obtenerMinutosInternacionales(),
                     p1.obtenerCostoMinutoInternacional());
-            System.out.println(data);
+            //System.out.println(data);
             statement.executeUpdate(data);
             obtenerConexion().close();
         } catch (SQLException e) {
@@ -105,7 +105,7 @@ public class Enlace {
             String data = String.format("INSERT INTO planPostPagoMinutosMegasEconomico (nombreUsuario,cedulaUsuario,"
                     + "ciudadUsuario,marcaMovil,modeloMovil,numeroMovil,minutos,costoMinutos,"
                     + "numeroMegasGB,costoGB,pDescuento) values "
-                    + "('%s', '%s', '%s', '%s', '%s', %s, %d, %f, %d, %f, %f)",
+                    + "('%s', '%s', '%s', '%s', '%s', '%s', '%d', '%f', '%d', '%f', '%f')",
                     p1.obtenerNombresUsuario(),
                     p1.obtenerCedulaUsuario(), 
                     p1.obtenerCiudadUsuario(),
@@ -117,7 +117,7 @@ public class Enlace {
                     p1.obtenerNumeroMegasGB(), 
                     p1.obtenerCostoGB(),
                     p1.obtenerPDescuento());
-            System.out.println(data);
+            //System.out.println(data);
             statement.executeUpdate(data);
             obtenerConexion().close();
         } catch (SQLException e) {
@@ -135,7 +135,7 @@ public class Enlace {
             String data = String.format("INSERT INTO planPostPagoMinutosMegas (nombreUsuario,cedulaUsuario,"
                     + "ciudadUsuario,marcaMovil,modeloMovil,numeroMovil,minutos,costoMinutos,"
                     + "numeroMegasGB,costoGB) values "
-                    + "('%s', '%s', '%s', '%s', '%s', %s, %d, %f, %d, %f)",
+                    + "('%s', '%s', '%s', '%s', '%s', '%s', '%d', '%f', '%d', '%f')",
                     p1.obtenerNombresUsuario(), 
                     p1.obtenerCedulaUsuario(), 
                     p1.obtenerCiudadUsuario(),
@@ -146,7 +146,7 @@ public class Enlace {
                     p1.obtenerCostoMinuto(), 
                     p1.obtenerNumeroMegasGB(),
                     p1.obtenerCostoGB());
-            System.out.println(data);
+            //System.out.println(data);
             statement.executeUpdate(data);
             obtenerConexion().close();
         } catch (SQLException e) {
